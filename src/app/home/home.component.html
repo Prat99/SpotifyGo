@@ -1,0 +1,21 @@
+<div class='row'>
+  <div class='container'>
+    <h1>Need Music</h1>
+    <p class='lead'>Use SpotifyApp to browse new releases and find your favorite songs!</p>
+      <form>
+      <div class='form-group'>
+      <input class='form-control' type='text' placeholder='search artists, music' name='searchstr' [(ngModel)]='searchstr' (keyup)='search()' >
+      </div>
+      </form> 
+        <div *ngIf='results'>
+          <div class="panel panel-default" *ngFor = 'let res of results'>
+               <div class="panel-heading">
+                   <h3><a routerLink='/artist/{{res.id}}'>{{res.name}}</a></h3> 
+               </div>
+               <div class="panel-body" >Genres:
+                  <span *ngFor = 'let gen of res.genres'> {{gen}}</span>
+               </div>
+          </div>
+        </div>
+  </div>
+</div>
